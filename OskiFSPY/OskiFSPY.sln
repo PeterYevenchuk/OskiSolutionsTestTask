@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OskiFSPY.UnitTests", "..\Os
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "oskifspy.frontend", "..\oskifspy.frontend\oskifspy.frontend.esproj", "{714FAAE5-F813-4BFC-8BC0-C7C4996F3657}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "OskiFSPY.DB", "..\OskiFSPY.DB\OskiFSPY.DB.sqlproj", "{BEA284A4-46FB-4A83-8D14-97DB7E115594}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,12 +35,6 @@ Global
 		{714FAAE5-F813-4BFC-8BC0-C7C4996F3657}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{714FAAE5-F813-4BFC-8BC0-C7C4996F3657}.Release|Any CPU.Build.0 = Release|Any CPU
 		{714FAAE5-F813-4BFC-8BC0-C7C4996F3657}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{BEA284A4-46FB-4A83-8D14-97DB7E115594}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BEA284A4-46FB-4A83-8D14-97DB7E115594}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BEA284A4-46FB-4A83-8D14-97DB7E115594}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{BEA284A4-46FB-4A83-8D14-97DB7E115594}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BEA284A4-46FB-4A83-8D14-97DB7E115594}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BEA284A4-46FB-4A83-8D14-97DB7E115594}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
