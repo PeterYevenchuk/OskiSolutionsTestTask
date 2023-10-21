@@ -32,7 +32,8 @@ namespace OskiFSPY.WebAPI.data_access.migration
 
                     b.Property<string>("AnswerText")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
 
                     b.Property<int>("QuestionId")
                         .HasColumnType("int");
@@ -60,7 +61,8 @@ namespace OskiFSPY.WebAPI.data_access.migration
 
                     b.Property<string>("QuestionText")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<int>("TestId")
                         .HasColumnType("int");
@@ -82,11 +84,13 @@ namespace OskiFSPY.WebAPI.data_access.migration
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("TestId");
 
@@ -103,21 +107,28 @@ namespace OskiFSPY.WebAPI.data_access.migration
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Surname")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("UserId");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
 
                     b.ToTable("Users");
                 });
@@ -137,11 +148,9 @@ namespace OskiFSPY.WebAPI.data_access.migration
                         .HasColumnType("int");
 
                     b.Property<int?>("TestId")
-                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<int?>("UserId")
-                        .IsRequired()
                         .HasColumnType("int");
 
                     b.HasKey("UserTestStatusId");
@@ -180,13 +189,13 @@ namespace OskiFSPY.WebAPI.data_access.migration
                     b.HasOne("OskiFSPY.Core.Tests.Test", "Test")
                         .WithMany()
                         .HasForeignKey("TestId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.SetNull)
                         .IsRequired();
 
                     b.HasOne("OskiFSPY.Core.Users.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.SetNull)
                         .IsRequired();
 
                     b.Navigation("Test");

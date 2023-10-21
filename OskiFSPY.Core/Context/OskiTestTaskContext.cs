@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OskiFSPY.Core.Answers;
+using OskiFSPY.Core.Context.DBConfiguration;
 using OskiFSPY.Core.Questions;
 using OskiFSPY.Core.Tests;
 using OskiFSPY.Core.Users;
@@ -17,7 +18,12 @@ public class OskiTestTaskContext : DbContext
     public DbSet<Question> Questions { get; set; }
     public DbSet<Answer> Answers { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.ApplyConfiguration(new UserTestStatusConfiguration());
+        modelBuilder.ApplyConfiguration(new UserConfiguration());
+        modelBuilder.ApplyConfiguration(new TestConfiguration());
+        modelBuilder.ApplyConfiguration(new QuestionConfiguration());
+        modelBuilder.ApplyConfiguration(new AnswerConfiguration());
     }
 }
