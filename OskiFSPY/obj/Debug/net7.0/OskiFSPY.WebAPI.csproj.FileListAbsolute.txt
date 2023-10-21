@@ -158,3 +158,11 @@ D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY\bin\Debug\net7.0\zh-Hans\Microsoft.
 D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY\bin\Debug\net7.0\zh-Hant\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY\bin\Debug\net7.0\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY\bin\Debug\net7.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY\bin\Debug\net7.0\AutoMapper.dll
+D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY\bin\Debug\net7.0\FluentAssertions.dll
+D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY\bin\Debug\net7.0\FluentValidation.dll
+D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY\bin\Debug\net7.0\FluentValidation.DependencyInjectionExtensions.dll
+D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY\bin\Debug\net7.0\MediatR.dll
+D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY\bin\Debug\net7.0\MediatR.Contracts.dll
+D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY\bin\Debug\net7.0\Scrutor.dll
+D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

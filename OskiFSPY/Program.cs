@@ -1,10 +1,11 @@
+using CookFit.Core;
 using OskiFSPY.WebAPI;
 
 var builder = WebApplication.CreateBuilder(args);
-
 var configuration = builder.Configuration;
 
 ServiceConfiguration.ConfigureServices(builder.Services, configuration);
+CoreServiceConfiguration.ConfigureServices(builder.Services);
 
 var app = builder.Build();
 
