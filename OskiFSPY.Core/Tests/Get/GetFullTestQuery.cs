@@ -10,4 +10,6 @@ namespace OskiFSPY.Core.Tests.Get;
 public class GetFullTestQuery : IRequest<FullTest>
 {
     public int TestId { get; set; }
+
+    public int UserId { get; set; }
 }
