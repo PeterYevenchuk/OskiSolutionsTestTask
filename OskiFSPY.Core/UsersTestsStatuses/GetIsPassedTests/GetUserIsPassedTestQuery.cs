@@ -1,9 +1,8 @@
 ﻿using MediatR;
-using OskiFSPY.Core.UsersTestsStatuses.Get;
 
 namespace OskiFSPY.Core.UsersTestsStatuses.GetAvailableTests;
 
-public class GetUserIsPassedTestQuery : IRequest<List<UserTest>>
+public class GetUserIsPassedTestQuery : IRequest<List<UserResponse>>
 {
     public int UserId { get; set; }
 

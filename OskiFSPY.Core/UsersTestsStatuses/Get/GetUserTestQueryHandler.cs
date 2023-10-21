@@ -6,7 +6,7 @@ using OskiFSPY.Core.Context;
 
 namespace OskiFSPY.Core.UsersTestsStatuses.Get;
 
-public class GetUserTestQueryHandler : IRequestHandler<GetUserTestQuery, List<UserTest>>
+public class GetUserTestQueryHandler : IRequestHandler<GetUserTestQuery, List<UserResponse>>
 {
     private readonly OskiTestTaskContext _context;
     private readonly IMapper _mapper;
@@ -17,7 +17,7 @@ public class GetUserTestQueryHandler : IRequestHandler<GetUserTestQuery, List<Us
         _mapper = mapper;
     }
 
-    public async Task<List<UserTest>> Handle(GetUserTestQuery request, CancellationToken cancellationToken)
+    public async Task<List<UserResponse>> Handle(GetUserTestQuery request, CancellationToken cancellationToken)
     {
         var myTests = await _context.UserTestStatuses
             .Where(uts => uts.UserId == request.UserId)
@@ -29,7 +29,7 @@ public class GetUserTestQueryHandler : IRequestHandler<GetUserTestQuery, List<Us
             return null;
         }
 
-        var myTestStatus = myTests.Select(uts => _mapper.Map<UserTest>(uts)).ToList();
+        var myTestStatus = myTests.Select(uts => _mapper.Map<UserResponse>(uts)).ToList();
 
         return myTestStatus;
     }

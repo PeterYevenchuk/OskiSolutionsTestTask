@@ -6,11 +6,12 @@ using OskiFSPY.Core.UsersTestsStatuses.GetAvailableTests;
 namespace OskiFSPY.WebAPI.Controllers;
 
 [ApiController]
-public class UserTestsController : ControllerBase
+[Route("api/[controller]")]
+public class UserTestStatusController : ControllerBase
 {
     private readonly IMediator _mediator;
 
-    public UserTestsController(IMediator mediator)
+    public UserTestStatusController(IMediator mediator)
     {
         _mediator = mediator;
     }

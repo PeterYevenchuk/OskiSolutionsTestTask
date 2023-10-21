@@ -3,11 +3,10 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using OskiFSPY.Core.Context;
-using OskiFSPY.Core.UsersTestsStatuses.Get;
 
 namespace OskiFSPY.Core.UsersTestsStatuses.GetAvailableTests;
 
-public class GetUserIsPassedTestQueryHandler : IRequestHandler<GetUserIsPassedTestQuery, List<UserTest>>
+public class GetUserIsPassedTestQueryHandler : IRequestHandler<GetUserIsPassedTestQuery, List<UserResponse>>
 {
     private readonly OskiTestTaskContext _context;
     private readonly IMapper _mapper;
@@ -18,7 +17,7 @@ public class GetUserIsPassedTestQueryHandler : IRequestHandler<GetUserIsPassedTe
         _mapper = mapper;
     }
 
-    public async Task<List<UserTest>> Handle(GetUserIsPassedTestQuery request, CancellationToken cancellationToken)
+    public async Task<List<UserResponse>> Handle(GetUserIsPassedTestQuery request, CancellationToken cancellationToken)
     {
         var myTests = await _context.UserTestStatuses
             .Where(uts => uts.UserId == request.UserId && uts.Passed == request.Passed)
@@ -30,7 +29,7 @@ public class GetUserIsPassedTestQueryHandler : IRequestHandler<GetUserIsPassedTe
             return null;
         }
 
-        var myTestStatus = myTests.Select(uts => _mapper.Map<UserTest>(uts)).ToList();
+        var myTestStatus = myTests.Select(uts => _mapper.Map<UserResponse>(uts)).ToList();
 
         return myTestStatus;
     }

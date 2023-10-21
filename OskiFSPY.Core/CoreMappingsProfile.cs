@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
+using OskiFSPY.Core.Answers;
 using OskiFSPY.Core.UsersTestsStatuses;
-using OskiFSPY.Core.UsersTestsStatuses.Get;
 
 namespace OskiFSPY.Core;
 
@@ -8,7 +8,8 @@ public class CoreMappingsProfile : Profile
 {
     public CoreMappingsProfile()
     {
-        CreateMap<UserTestStatus, UserTest>();
+        CreateMap<UserTestStatus, UserResponse>();
 
+        CreateMap<Answer, AnswerResponse>();
     }
 }

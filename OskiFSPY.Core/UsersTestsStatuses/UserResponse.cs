@@ -1,8 +1,8 @@
 ﻿using OskiFSPY.Core.Tests;
 
-namespace OskiFSPY.Core.UsersTestsStatuses.Get;
+namespace OskiFSPY.Core.UsersTestsStatuses;
 
-public class UserTest
+public class UserResponse
 {
     public bool Passed { get; set; }
 
