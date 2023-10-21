@@ -156,3 +156,11 @@ D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY.UnitTests\obj\Debug\net7.0\refint\O
 D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY.UnitTests\obj\Debug\net7.0\OskiFSPY.UnitTests.pdb
 D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY.UnitTests\obj\Debug\net7.0\OskiFSPY.UnitTests.genruntimeconfig.cache
 D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY.UnitTests\obj\Debug\net7.0\ref\OskiFSPY.UnitTests.dll
+D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY.UnitTests\bin\Debug\net7.0\AutoMapper.dll
+D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY.UnitTests\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY.UnitTests\bin\Debug\net7.0\FluentAssertions.dll
+D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY.UnitTests\bin\Debug\net7.0\FluentValidation.dll
+D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY.UnitTests\bin\Debug\net7.0\FluentValidation.DependencyInjectionExtensions.dll
+D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY.UnitTests\bin\Debug\net7.0\MediatR.dll
+D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY.UnitTests\bin\Debug\net7.0\MediatR.Contracts.dll
+D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY.UnitTests\bin\Debug\net7.0\Scrutor.dll

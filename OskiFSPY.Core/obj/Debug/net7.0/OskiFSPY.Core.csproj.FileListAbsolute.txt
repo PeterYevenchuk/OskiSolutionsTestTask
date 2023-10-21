@@ -158,3 +158,5 @@ D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY.Core\bin\Debug\net7.0\MediatR.dll
 D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY.Core\bin\Debug\net7.0\MediatR.Contracts.dll
 D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY.Core\bin\Debug\net7.0\Scrutor.dll
 D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY.Core\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY.Core\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY.Core\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll

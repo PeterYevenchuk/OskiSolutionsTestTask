@@ -1,4 +1,4 @@
-using CookFit.Core;
+using OskiFSPY.Core;
 using OskiFSPY.WebAPI;
 
 var builder = WebApplication.CreateBuilder(args);

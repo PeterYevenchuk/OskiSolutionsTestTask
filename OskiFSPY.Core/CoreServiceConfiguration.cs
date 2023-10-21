@@ -1,11 +1,11 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using OskiFSPY.Core;
 using OskiFSPY.Core.Context;
+using OskiFSPY.Core.Helpers.PasswordHasher;
 using OskiFSPY.Core.ValidationBehaviors;
 
-namespace CookFit.Core;
+namespace OskiFSPY.Core;
 
 public static class CoreServiceConfiguration
 {
@@ -16,7 +16,7 @@ public static class CoreServiceConfiguration
             .AddAutoMapper(typeof(CoreMappingsProfile).Assembly)
             .AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>))
             .AddValidatorsFromAssembly(typeof(CoreServiceConfiguration).Assembly)
-            .AddDbContext<OskiTestTaskContext>();
-
+            .AddDbContext<OskiTestTaskContext>()
+            .AddScoped<IPasswordHash, PasswordHash>();
     }
 }

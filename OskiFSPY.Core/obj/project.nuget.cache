@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2CBUE+V3/3YjPpnzfKDa6Q3P1HUucXxUdSrm6faYNXXnW7rliya3rh6OMPYRgZp/FQv33l1ANnaLfCQ5c6Fi5g==",
+  "dgSpecHash": "ZHOiz91cd5yEtGF83E6zUl9aPeR7O5S4eb/DXsUAMnf7aAVlz9iM4CgJP5duwzk9Y3Eu/N8Z2SRBSymPqUdKqg==",
   "success": true,
   "projectFilePath": "D:\\GitHubRepo\\OskiSolutionsTestTask\\OskiFSPY.Core\\OskiFSPY.Core.csproj",
   "expectedPackageFiles": [
@@ -14,6 +14,8 @@
     "C:\\Users\\petro\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\petro\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
     "C:\\Users\\petro\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\petro\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.12\\microsoft.aspnetcore.cryptography.internal.7.0.12.nupkg.sha512",
+    "C:\\Users\\petro\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\7.0.12\\microsoft.aspnetcore.cryptography.keyderivation.7.0.12.nupkg.sha512",
     "C:\\Users\\petro\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\petro\\.nuget\\packages\\microsoft.codecoverage\\17.7.2\\microsoft.codecoverage.17.7.2.nupkg.sha512",
     "C:\\Users\\petro\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

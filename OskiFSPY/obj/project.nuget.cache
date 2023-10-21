@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "H8cmDcBmBorn96dt+VYZd+0UA5oMi5rQrt2NZKxfkmdZNo8+9HauesGTIbOUUF8aMTGb8GLqjiabiKERzxJpug==",
+  "dgSpecHash": "qBHkmL1eNuZUPqeC63/YZnaB3xM26NDu2YweT/4NLfB3MXIY1CX8bROw2mi7v0rnZIk85Ffpl3r27vQ+bvNhYg==",
   "success": true,
   "projectFilePath": "D:\\GitHubRepo\\OskiSolutionsTestTask\\OskiFSPY\\OskiFSPY.WebAPI.csproj",
   "expectedPackageFiles": [
@@ -14,6 +14,8 @@
     "C:\\Users\\petro\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\petro\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
     "C:\\Users\\petro\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\petro\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.12\\microsoft.aspnetcore.cryptography.internal.7.0.12.nupkg.sha512",
+    "C:\\Users\\petro\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\7.0.12\\microsoft.aspnetcore.cryptography.keyderivation.7.0.12.nupkg.sha512",
     "C:\\Users\\petro\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.12\\microsoft.aspnetcore.openapi.7.0.12.nupkg.sha512",
     "C:\\Users\\petro\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\petro\\.nuget\\packages\\microsoft.codecoverage\\17.7.2\\microsoft.codecoverage.17.7.2.nupkg.sha512",
