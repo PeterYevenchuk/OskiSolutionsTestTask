@@ -4,7 +4,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace OskiFSPY.Core.AuthJWT;
+namespace OskiFSPY.Core.AuthJWT.AccessToken;
 
 public static class TokenUtilities
 {

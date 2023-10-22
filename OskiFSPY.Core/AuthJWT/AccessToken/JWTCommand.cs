@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using OskiFSPY.Core.AuthJWT;
 
-namespace OskiFSPY.Core.AuthJWTHelper;
+namespace OskiFSPY.Core.AuthJWT.AccessToken;
 
 public class JwtCommand : IRequest<Tokens>
 {

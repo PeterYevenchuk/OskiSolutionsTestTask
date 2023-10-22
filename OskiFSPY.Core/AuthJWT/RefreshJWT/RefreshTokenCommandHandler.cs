@@ -4,6 +4,7 @@ using System.Text;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using OskiFSPY.Core.AuthJWT.AccessToken;
 using OskiFSPY.Core.Context;
 
 namespace OskiFSPY.Core.AuthJWT.RefreshJWT;
@@ -30,14 +31,14 @@ public class RefreshTokenCommandHandler : IRequestHandler<RefreshTokenCommand, T
 
         if (user == null)
         {
-            return null;
+            throw new ArgumentNullException("User not found!");
         }
 
         var storedRefreshToken = RefreshTokenStorage.GetRefreshToken(user.UserId);
 
         if (storedRefreshToken != request.RefreshToken)
         {
-            return null;
+            throw new ArgumentNullException("Refresh token not valid or expired.");
         }
 
         var tokenValidationParameters = new TokenValidationParameters
@@ -55,7 +56,7 @@ public class RefreshTokenCommandHandler : IRequestHandler<RefreshTokenCommand, T
             !claimsIdentity.IsAuthenticated ||
             claimsIdentity.FindFirst(ClaimTypes.NameIdentifier)?.Value != user.UserId.ToString())
         {
-            return null;
+            throw new ArgumentNullException("Refresh token not valid or expired.");
         }
 
         var refreshToken = TokenUtilities.GenerateRefreshToken();

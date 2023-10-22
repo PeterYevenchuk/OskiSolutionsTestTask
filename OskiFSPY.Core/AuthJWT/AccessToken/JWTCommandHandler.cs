@@ -1,10 +1,10 @@
 ﻿using OskiFSPY.Core.Helpers.PasswordHasher;
 using MediatR;
 using Microsoft.Extensions.Configuration;
-using OskiFSPY.Core.AuthJWT;
 using OskiFSPY.Core.Context;
+using OskiFSPY.Core.AuthJWT.RefreshJWT;
 
-namespace OskiFSPY.Core.AuthJWTHelper;
+namespace OskiFSPY.Core.AuthJWT.AccessToken;
 
 public class JwtCommandHandler : IRequestHandler<JwtCommand, Tokens>
 {

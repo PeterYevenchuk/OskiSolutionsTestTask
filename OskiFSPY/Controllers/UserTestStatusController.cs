@@ -17,27 +17,23 @@ public class UserTestStatusController : ControllerBase
         _mediator = mediator;
     }
 
-    //[Authorize(Roles = "User")]
+    [Authorize(Roles = "User")]
     [HttpGet("{userId}")]
     public async Task<IActionResult> GetUserTests(int userId)
     {
         var query = new GetUserTestQuery { UserId = userId };
         var result = await _mediator.Send(query);
 
-        return result == null
-        ? NotFound("Not found!")
-        : Ok(result);
+        return Ok(result);
     }
 
-    //[Authorize(Roles = "User")]
+    [Authorize(Roles = "User")]
     [HttpGet("is-passed/{userId}/{isPassed}")]
-    public async Task<IActionResult> GetUserTests(int userId, bool isPassed)
+    public async Task<IActionResult> PassingTest(int userId, bool isPassed)
     {
         var query = new GetUserIsPassedTestQuery { UserId = userId, Passed = isPassed };
         var result = await _mediator.Send(query);
 
-        return result == null
-        ? NotFound("Not found!")
-        : Ok(result);
+        return Ok(result);
     }
 }

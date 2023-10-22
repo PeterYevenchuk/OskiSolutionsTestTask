@@ -1,7 +1,7 @@
 ﻿using OskiFSPY.Core.AuthJWT.RefreshJWT;
-using OskiFSPY.Core.AuthJWTHelper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using OskiFSPY.Core.AuthJWT.AccessToken;
 
 namespace OskiFSPY.WebAPI.Controllers;
 
@@ -21,9 +21,7 @@ public class AuthController : ControllerBase
     {
         var result = await _mediator.Send(query);
 
-        return result is null
-        ? BadRequest("Login or password not correct!")
-        : Ok(result);
+        return Ok(result);
     }
 
     [HttpPost("refresh-token")]
@@ -31,8 +29,6 @@ public class AuthController : ControllerBase
     {
         var result = await _mediator.Send(query);
 
-        return result is null
-        ? BadRequest("Refresh token not valid or expired.")
-        : Ok(result);
+        return Ok(result);
     }
 }

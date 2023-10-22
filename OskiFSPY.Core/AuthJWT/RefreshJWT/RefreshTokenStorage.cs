@@ -1,6 +1,6 @@
 ﻿using System.Collections.Concurrent;
 
-namespace OskiFSPY.Core.AuthJWT;
+namespace OskiFSPY.Core.AuthJWT.RefreshJWT;
 
 public static class RefreshTokenStorage
 {
