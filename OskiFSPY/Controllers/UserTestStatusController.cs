@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OskiFSPY.Core.UsersTestsStatuses.Get;
 using OskiFSPY.Core.UsersTestsStatuses.GetAvailableTests;
@@ -16,6 +17,7 @@ public class UserTestStatusController : ControllerBase
         _mediator = mediator;
     }
 
+    //[Authorize(Roles = "User")]
     [HttpGet("{userId}")]
     public async Task<IActionResult> GetUserTests(int userId)
     {
@@ -27,6 +29,7 @@ public class UserTestStatusController : ControllerBase
         : Ok(result);
     }
 
+    //[Authorize(Roles = "User")]
     [HttpGet("is-passed/{userId}/{isPassed}")]
     public async Task<IActionResult> GetUserTests(int userId, bool isPassed)
     {

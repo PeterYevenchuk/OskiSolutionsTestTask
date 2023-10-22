@@ -2,7 +2,7 @@
 
 namespace OskiFSPY.Core.UsersTestsStatuses.GetAvailableTests;
 
-public class GetUserIsPassedTestQuery : IRequest<List<UserResponse>>
+public class GetUserIsPassedTestQuery : IRequest<List<UserTestStatusResponse>>
 {
     public int UserId { get; set; }
 

@@ -3,7 +3,7 @@ using OskiFSPY.Core.UsersTestsStatuses;
 
 namespace OskiFSPY.Core.Tests.PassingTests;
 
-public class PassingTestCommand : IRequest<UserResponse>
+public class PassingTestCommand : IRequest<UserTestStatusResponse>
 {
     public int UserId { get; set; }
 

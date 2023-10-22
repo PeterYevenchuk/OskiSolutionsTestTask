@@ -6,7 +6,7 @@ using OskiFSPY.Core.UsersTestsStatuses;
 
 namespace OskiFSPY.Core.Tests.PassingTests;
 
-public class PassingTestCommandHandler : IRequestHandler<PassingTestCommand, UserResponse>
+public class PassingTestCommandHandler : IRequestHandler<PassingTestCommand, UserTestStatusResponse>
 {
     private readonly OskiTestTaskContext _context;
     private readonly IMapper _mapper;
@@ -17,27 +17,31 @@ public class PassingTestCommandHandler : IRequestHandler<PassingTestCommand, Use
         _mapper = mapper;
     }
 
-    public async Task<UserResponse> Handle(PassingTestCommand request, CancellationToken cancellationToken)
+    public async Task<UserTestStatusResponse> Handle(PassingTestCommand request, CancellationToken cancellationToken)
     {
         var user = await _context.Users.FirstOrDefaultAsync(u => u.UserId == request.UserId);
-        var test = await _context.Tests.FirstOrDefaultAsync(t => t.TestId == request.TestId);
 
-        if (test == null || user == null)
+        if (user == null)
         {
-            return null;
+            throw new ArgumentException("User not found!");
         }
 
-        var existingStatus = await _context.UserTestStatuses
-                .FirstOrDefaultAsync(uts => uts.UserId == user.UserId && uts.TestId == test.TestId);
+        var test = await _context.Tests.FirstOrDefaultAsync(t => t.TestId == request.TestId && t.UserId == user.UserId);
 
-        if (existingStatus != null && existingStatus.Passed == true)
+        if (test != null && test.Passed == true)
         {
             throw new ArgumentException("You have already passed this test!");
+        }
+        else if (test == null)
+        {
+            throw new ArgumentException("Test not found!");
         }
 
         var questions = await _context.Questions
             .Where(q => q.TestId == test.TestId)
             .ToListAsync();
+
+        var maxPoints = questions.Sum(q => q.Points);
 
         var totalScore = 0;
 
@@ -61,19 +65,24 @@ public class PassingTestCommandHandler : IRequestHandler<PassingTestCommand, Use
         using var transaction = _context.Database.BeginTransaction();
         var userTestStatus = new UserTestStatus
         {
-            Passed = true,
             Rating = totalScore,
-            UserId = user.UserId,
             TestId = test.TestId,
-            User = user,
             Test = test
         };
 
         _context.UserTestStatuses.Add(userTestStatus);
+
+        test.Passed = true;
+        test.UserId = user.UserId;
+        test.User = user;
+
         await _context.SaveChangesAsync();
         await transaction.CommitAsync();
 
-        var myTestStatus = _mapper.Map<UserResponse>(userTestStatus);
+        var myTestStatus = _mapper.Map<UserTestStatusResponse>(userTestStatus);
+
+        myTestStatus.MaxRaiting = maxPoints;
+        myTestStatus.TestResponse = _mapper.Map<TestResponse>(test);
 
         return myTestStatus;
     }

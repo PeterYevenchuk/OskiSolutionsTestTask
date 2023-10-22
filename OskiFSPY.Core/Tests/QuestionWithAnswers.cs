@@ -5,7 +5,7 @@ namespace OskiFSPY.Core.Tests;
 
 public class QuestionWithAnswers
 {
-    public Question Question { get; set; }
+    public QuestionResponse QuestionResponse { get; set; }
 
     public List<AnswerResponse> Answers { get; set; }
 }

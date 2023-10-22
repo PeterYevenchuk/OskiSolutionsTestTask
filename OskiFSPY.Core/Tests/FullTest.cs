@@ -2,7 +2,7 @@
 
 public class FullTest
 {
-    public Test Test { get; set; }
+    public TestResponse TestResponse { get; set; }
 
     public List<QuestionWithAnswers> Questions { get; set; }
 }

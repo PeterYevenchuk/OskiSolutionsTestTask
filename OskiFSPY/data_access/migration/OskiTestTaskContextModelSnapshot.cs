@@ -46,6 +46,176 @@ namespace OskiFSPY.WebAPI.data_access.migration
                     b.HasIndex("QuestionId");
 
                     b.ToTable("Answers");
+
+                    b.HasData(
+                        new
+                        {
+                            AnswerId = 1,
+                            AnswerText = "The radius of the Sun is 696,342 km, and its diameter is 1,392,684 km.",
+                            QuestionId = 1,
+                            RightAnswer = true
+                        },
+                        new
+                        {
+                            AnswerId = 2,
+                            AnswerText = "The radius of the Sun is 596,342 km, and its diameter is 1,192,684 km.",
+                            QuestionId = 1,
+                            RightAnswer = false
+                        },
+                        new
+                        {
+                            AnswerId = 3,
+                            AnswerText = "The photosphere is 6000 degrees Celsius.",
+                            QuestionId = 2,
+                            RightAnswer = true
+                        },
+                        new
+                        {
+                            AnswerId = 4,
+                            AnswerText = "The photosphere is 10000 degrees Celsius.",
+                            QuestionId = 2,
+                            RightAnswer = false
+                        },
+                        new
+                        {
+                            AnswerId = 5,
+                            AnswerText = "289.6 million kilometers.",
+                            QuestionId = 3,
+                            RightAnswer = false
+                        },
+                        new
+                        {
+                            AnswerId = 6,
+                            AnswerText = "149.6 million kilometers.",
+                            QuestionId = 3,
+                            RightAnswer = true
+                        },
+                        new
+                        {
+                            AnswerId = 7,
+                            AnswerText = "The radius of the Sun is 696,342 km, and its diameter is 1,392,684 km.",
+                            QuestionId = 4,
+                            RightAnswer = true
+                        },
+                        new
+                        {
+                            AnswerId = 8,
+                            AnswerText = "The radius of the Sun is 596,342 km, and its diameter is 1,192,684 km.",
+                            QuestionId = 4,
+                            RightAnswer = false
+                        },
+                        new
+                        {
+                            AnswerId = 9,
+                            AnswerText = "The photosphere is 6000 degrees Celsius.",
+                            QuestionId = 5,
+                            RightAnswer = true
+                        },
+                        new
+                        {
+                            AnswerId = 10,
+                            AnswerText = "The photosphere is 10000 degrees Celsius.",
+                            QuestionId = 5,
+                            RightAnswer = false
+                        },
+                        new
+                        {
+                            AnswerId = 11,
+                            AnswerText = "289.6 million kilometers.",
+                            QuestionId = 6,
+                            RightAnswer = false
+                        },
+                        new
+                        {
+                            AnswerId = 12,
+                            AnswerText = "149.6 million kilometers.",
+                            QuestionId = 6,
+                            RightAnswer = true
+                        },
+                        new
+                        {
+                            AnswerId = 13,
+                            AnswerText = "The radius of the Moon is 1,737.4 km, and its diameter is 3,474.8 km.",
+                            QuestionId = 7,
+                            RightAnswer = true
+                        },
+                        new
+                        {
+                            AnswerId = 14,
+                            AnswerText = "The radius of the Moon is 1,337.4 km, and its diameter is 2,674.8 km.",
+                            QuestionId = 7,
+                            RightAnswer = false
+                        },
+                        new
+                        {
+                            AnswerId = 15,
+                            AnswerText = "The average temperature of the Moon's surface is about -233 degrees Celsius.",
+                            QuestionId = 8,
+                            RightAnswer = true
+                        },
+                        new
+                        {
+                            AnswerId = 16,
+                            AnswerText = "The average temperature of the Moon's surface is about 123 degrees Celsius.",
+                            QuestionId = 8,
+                            RightAnswer = false
+                        },
+                        new
+                        {
+                            AnswerId = 17,
+                            AnswerText = "The average distance from the Earth to the Moon is about 384,400 kilometers.",
+                            QuestionId = 9,
+                            RightAnswer = true
+                        },
+                        new
+                        {
+                            AnswerId = 18,
+                            AnswerText = "The average distance from the Earth to the Moon is about 84,400 kilometers.",
+                            QuestionId = 9,
+                            RightAnswer = false
+                        },
+                        new
+                        {
+                            AnswerId = 19,
+                            AnswerText = "The radius of the Moon is 1,737.4 km, and its diameter is 3,474.8 km.",
+                            QuestionId = 10,
+                            RightAnswer = true
+                        },
+                        new
+                        {
+                            AnswerId = 20,
+                            AnswerText = "The radius of the Moon is 1,337.4 km, and its diameter is 2,674.8 km.",
+                            QuestionId = 10,
+                            RightAnswer = false
+                        },
+                        new
+                        {
+                            AnswerId = 21,
+                            AnswerText = "The average temperature of the Moon's surface is about -233 degrees Celsius.",
+                            QuestionId = 11,
+                            RightAnswer = true
+                        },
+                        new
+                        {
+                            AnswerId = 22,
+                            AnswerText = "The average temperature of the Moon's surface is about 123 degrees Celsius.",
+                            QuestionId = 11,
+                            RightAnswer = false
+                        },
+                        new
+                        {
+                            AnswerId = 23,
+                            AnswerText = "The average distance from the Earth to the Moon is about 384,400 kilometers.",
+                            QuestionId = 12,
+                            RightAnswer = true
+                        },
+                        new
+                        {
+                            AnswerId = 24,
+                            AnswerText = "The average distance from the Earth to the Moon is about 84,400 kilometers.",
+                            QuestionId = 12,
+                            RightAnswer = false
+                        });
                 });
 
             modelBuilder.Entity("OskiFSPY.Core.Questions.Question", b =>
@@ -72,6 +242,92 @@ namespace OskiFSPY.WebAPI.data_access.migration
                     b.HasIndex("TestId");
 
                     b.ToTable("Questions");
+
+                    b.HasData(
+                        new
+                        {
+                            QuestionId = 1,
+                            Points = 5,
+                            QuestionText = "What size is the sun?",
+                            TestId = 1
+                        },
+                        new
+                        {
+                            QuestionId = 2,
+                            Points = 5,
+                            QuestionText = "What is the temperature of the sun?",
+                            TestId = 1
+                        },
+                        new
+                        {
+                            QuestionId = 3,
+                            Points = 5,
+                            QuestionText = "How far is the sun from the earth?",
+                            TestId = 1
+                        },
+                        new
+                        {
+                            QuestionId = 4,
+                            Points = 5,
+                            QuestionText = "What size is the sun?",
+                            TestId = 2
+                        },
+                        new
+                        {
+                            QuestionId = 5,
+                            Points = 5,
+                            QuestionText = "What is the temperature of the sun?",
+                            TestId = 2
+                        },
+                        new
+                        {
+                            QuestionId = 6,
+                            Points = 5,
+                            QuestionText = "How far is the sun from the earth?",
+                            TestId = 2
+                        },
+                        new
+                        {
+                            QuestionId = 7,
+                            Points = 5,
+                            QuestionText = "What size is the moon?",
+                            TestId = 3
+                        },
+                        new
+                        {
+                            QuestionId = 8,
+                            Points = 5,
+                            QuestionText = "What is the temperature of the moon?",
+                            TestId = 3
+                        },
+                        new
+                        {
+                            QuestionId = 9,
+                            Points = 5,
+                            QuestionText = "How far is the moon from the earth?",
+                            TestId = 3
+                        },
+                        new
+                        {
+                            QuestionId = 10,
+                            Points = 5,
+                            QuestionText = "What size is the moon?",
+                            TestId = 4
+                        },
+                        new
+                        {
+                            QuestionId = 11,
+                            Points = 5,
+                            QuestionText = "What is the temperature of the moon?",
+                            TestId = 4
+                        },
+                        new
+                        {
+                            QuestionId = 12,
+                            Points = 5,
+                            QuestionText = "How far is the moon from the earth?",
+                            TestId = 4
+                        });
                 });
 
             modelBuilder.Entity("OskiFSPY.Core.Tests.Test", b =>
@@ -92,9 +348,51 @@ namespace OskiFSPY.WebAPI.data_access.migration
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<bool>("Passed")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("TestId");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("Tests");
+
+                    b.HasData(
+                        new
+                        {
+                            TestId = 1,
+                            Description = "How well you know our sun?",
+                            Name = "Sun",
+                            Passed = false,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            TestId = 2,
+                            Description = "How well you know our sun?",
+                            Name = "Sun",
+                            Passed = true,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            TestId = 3,
+                            Description = "How well you know the moon?",
+                            Name = "Moon",
+                            Passed = true,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            TestId = 4,
+                            Description = "How well you know the moon?",
+                            Name = "Moon",
+                            Passed = false,
+                            UserId = 2
+                        });
                 });
 
             modelBuilder.Entity("OskiFSPY.Core.Users.User", b =>
@@ -139,6 +437,28 @@ namespace OskiFSPY.WebAPI.data_access.migration
                         .IsUnique();
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = 1,
+                            Email = "simpson@example.com",
+                            Name = "Bart",
+                            Password = "KiXXDOMi5akuNUje3XuJbQZ/lphdVD3McMkuEvoUJSw=",
+                            Role = 0,
+                            Salt = "VSNO6dFWojmgIOtB91byvw==",
+                            Surname = "Simpson"
+                        },
+                        new
+                        {
+                            UserId = 2,
+                            Email = "sanchez@example.com",
+                            Name = "Rick",
+                            Password = "txTsTxszRvb3SppozpXvwc5ac1NaRBsGTCyIt/Zrqxo=",
+                            Role = 0,
+                            Salt = "kk4M9Ee0OMMTrcFaHNPfag==",
+                            Surname = "Sanchez"
+                        });
                 });
 
             modelBuilder.Entity("OskiFSPY.Core.UsersTestsStatuses.UserTestStatus", b =>
@@ -149,25 +469,31 @@ namespace OskiFSPY.WebAPI.data_access.migration
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserTestStatusId"));
 
-                    b.Property<bool>("Passed")
-                        .HasColumnType("bit");
-
                     b.Property<int>("Rating")
                         .HasColumnType("int");
 
                     b.Property<int?>("TestId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("UserTestStatusId");
 
                     b.HasIndex("TestId");
 
-                    b.HasIndex("UserId");
-
                     b.ToTable("UserTestStatuses");
+
+                    b.HasData(
+                        new
+                        {
+                            UserTestStatusId = 1,
+                            Rating = 15,
+                            TestId = 2
+                        },
+                        new
+                        {
+                            UserTestStatusId = 2,
+                            Rating = 10,
+                            TestId = 3
+                        });
                 });
 
             modelBuilder.Entity("OskiFSPY.Core.Answers.Answer", b =>
@@ -192,6 +518,17 @@ namespace OskiFSPY.WebAPI.data_access.migration
                     b.Navigation("Test");
                 });
 
+            modelBuilder.Entity("OskiFSPY.Core.Tests.Test", b =>
+                {
+                    b.HasOne("OskiFSPY.Core.Users.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("OskiFSPY.Core.UsersTestsStatuses.UserTestStatus", b =>
                 {
                     b.HasOne("OskiFSPY.Core.Tests.Test", "Test")
@@ -200,15 +537,7 @@ namespace OskiFSPY.WebAPI.data_access.migration
                         .OnDelete(DeleteBehavior.SetNull)
                         .IsRequired();
 
-                    b.HasOne("OskiFSPY.Core.Users.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.SetNull)
-                        .IsRequired();
-
                     b.Navigation("Test");
-
-                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

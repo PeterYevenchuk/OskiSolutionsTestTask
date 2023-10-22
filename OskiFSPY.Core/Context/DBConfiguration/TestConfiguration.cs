@@ -11,5 +11,11 @@ public class TestConfiguration : IEntityTypeConfiguration<Test>
         builder.HasKey(t => t.TestId);
         builder.Property(t => t.Name).IsRequired().HasMaxLength(100);
         builder.Property(t => t.Description).IsRequired().HasMaxLength(500);
+        builder.Property(t => t.Passed).IsRequired();
+        builder.Property(t => t.UserId).IsRequired(false);
+        builder.HasOne(t => t.User)
+            .WithMany()
+            .HasForeignKey(t => t.UserId)
+            .OnDelete(DeleteBehavior.SetNull);
     }
 }

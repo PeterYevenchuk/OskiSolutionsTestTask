@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using OskiFSPY.Core.Users;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OskiFSPY.Core.Tests;
 
@@ -10,4 +11,11 @@ public class Test
     public string Name { get; set; }
 
     public string Description { get; set; }
+
+    public bool Passed { get; set; }
+
+    public int? UserId { get; set; }
+
+    [ForeignKey("UserId")]
+    public User User { get; set; }
 }

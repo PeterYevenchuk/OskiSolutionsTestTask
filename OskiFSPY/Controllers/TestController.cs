@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OskiFSPY.Core.Tests.Get;
 using OskiFSPY.Core.Tests.PassingTests;
@@ -16,6 +17,7 @@ public class TestController : ControllerBase
         _mediator = mediator;
     }
 
+    //[Authorize(Roles = "User")]
     [HttpGet("{testId}/{userId}")]
     public async Task<IActionResult> GetTest(int testId, int userId)
     {
@@ -27,6 +29,7 @@ public class TestController : ControllerBase
         : Ok(result);
     }
 
+    //[Authorize(Roles = "User")]
     [HttpPost("passing-test")]
     public async Task<IActionResult> PassingTest(PassingTestCommand query)
     {

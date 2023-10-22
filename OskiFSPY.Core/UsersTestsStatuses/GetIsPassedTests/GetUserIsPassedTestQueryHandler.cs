@@ -3,10 +3,11 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using OskiFSPY.Core.Context;
+using OskiFSPY.Core.Tests;
 
 namespace OskiFSPY.Core.UsersTestsStatuses.GetAvailableTests;
 
-public class GetUserIsPassedTestQueryHandler : IRequestHandler<GetUserIsPassedTestQuery, List<UserResponse>>
+public class GetUserIsPassedTestQueryHandler : IRequestHandler<GetUserIsPassedTestQuery, List<UserTestStatusResponse>>
 {
     private readonly OskiTestTaskContext _context;
     private readonly IMapper _mapper;
@@ -17,20 +18,48 @@ public class GetUserIsPassedTestQueryHandler : IRequestHandler<GetUserIsPassedTe
         _mapper = mapper;
     }
 
-    public async Task<List<UserResponse>> Handle(GetUserIsPassedTestQuery request, CancellationToken cancellationToken)
+    public async Task<List<UserTestStatusResponse>> Handle(GetUserIsPassedTestQuery request, CancellationToken cancellationToken)
     {
-        var myTests = await _context.UserTestStatuses
+        var userTests = await _context.Tests
             .Where(uts => uts.UserId == request.UserId && uts.Passed == request.Passed)
-            .Include(uts => uts.Test)
             .ToListAsync();
 
-        if (myTests.IsNullOrEmpty())
+        if (userTests.IsNullOrEmpty())
         {
-            return null;
+            throw new ArgumentException("Tests not found!");
         }
 
-        var myTestStatus = myTests.Select(uts => _mapper.Map<UserResponse>(uts)).ToList();
+        var userTestStatusResponses = new List<UserTestStatusResponse>();
 
-        return myTestStatus;
+        foreach (var test in userTests)
+        {
+            var questions = await _context.Questions
+                .Where(q => q.TestId == test.TestId)
+                .ToListAsync();
+            var maxPoints = questions.Sum(q => q.Points);
+            var testResponse = _mapper.Map<TestResponse>(test);
+
+            var userTestStatus = await _context.UserTestStatuses.FirstOrDefaultAsync(uts => uts.TestId == test.TestId);
+            var userTestStatusResponse = _mapper.Map<UserTestStatusResponse>(userTestStatus);
+
+            if (userTestStatus == null)
+            {
+                userTestStatusResponse = new UserTestStatusResponse
+                {
+                    TestResponse = testResponse,
+                    MaxRaiting = maxPoints,
+                    Rating = 0
+                };
+            }
+            else
+            {
+                userTestStatusResponse.TestResponse = testResponse;
+                userTestStatusResponse.MaxRaiting = maxPoints;
+            }
+
+            userTestStatusResponses.Add(userTestStatusResponse);
+        }
+
+        return userTestStatusResponses;
     }
 }

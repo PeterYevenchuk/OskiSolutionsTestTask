@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OskiFSPY.Core.Answers;
 using OskiFSPY.Core.Context.DBConfiguration;
+using OskiFSPY.Core.Context.Seeds;
 using OskiFSPY.Core.Questions;
 using OskiFSPY.Core.Tests;
 using OskiFSPY.Core.Users;
@@ -25,5 +26,7 @@ public class OskiTestTaskContext : DbContext
         modelBuilder.ApplyConfiguration(new TestConfiguration());
         modelBuilder.ApplyConfiguration(new QuestionConfiguration());
         modelBuilder.ApplyConfiguration(new AnswerConfiguration());
+
+        TestDataSeed.Seed(modelBuilder);
     }
 }

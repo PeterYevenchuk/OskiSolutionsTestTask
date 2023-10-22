@@ -3,7 +3,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using OskiFSPY.Core.Answers;
 using OskiFSPY.Core.Context;
-using OskiFSPY.Core.Users;
+using OskiFSPY.Core.Questions;
 
 namespace OskiFSPY.Core.Tests.Get;
 
@@ -21,24 +21,26 @@ public class GetFullTestQueryHandler : IRequestHandler<GetFullTestQuery, FullTes
     public async Task<FullTest> Handle(GetFullTestQuery request, CancellationToken cancellationToken)
     {
         var user = await _context.Users.FirstOrDefaultAsync(u => u.UserId == request.UserId);
-        var test = await _context.Tests.FirstOrDefaultAsync(t => t.TestId == request.TestId);
 
-        if (test == null || user == null)
+        if (user == null)
         {
-            return null;
+            throw new ArgumentException("User not found!");
         }
 
-        var existingStatus = await _context.UserTestStatuses
-            .FirstOrDefaultAsync(uts => uts.UserId == user.UserId && uts.TestId == test.TestId);
+        var test = await _context.Tests.FirstOrDefaultAsync(t => t.TestId == request.TestId && t.UserId == user.UserId);
 
-        if (existingStatus != null && existingStatus.Passed == true)
+        if (test != null && test.Passed == true)
         {
             throw new ArgumentException("You have already passed this test!");
+        }
+        else if (test == null) 
+        {
+            throw new ArgumentException("Test not found!");
         }
 
         var fullTest = new FullTest
         {
-            Test = test,
+            TestResponse = _mapper.Map<TestResponse>(test),
             Questions = new List<QuestionWithAnswers>()
         };
 
@@ -54,7 +56,7 @@ public class GetFullTestQueryHandler : IRequestHandler<GetFullTestQuery, FullTes
 
             var questionWithAnswers = new QuestionWithAnswers
             {
-                Question = question,
+                QuestionResponse = _mapper.Map<QuestionResponse>(question),
                 Answers = _mapper.Map<List<AnswerResponse>>(answers)
             };
 
