@@ -1,3 +1,4 @@
+using FluentAssertions.Common;
 using OskiFSPY.Core;
 using OskiFSPY.WebAPI;
 
@@ -7,6 +8,17 @@ var configuration = builder.Configuration;
 ServiceConfiguration.ConfigureServices(builder.Services, configuration);
 CoreServiceConfiguration.ConfigureServices(builder.Services);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("MyPolicy",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:3000")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -15,7 +27,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+app.UseCors("MyPolicy");
+
 app.UseStaticFiles();
 
 app.UseRouting();

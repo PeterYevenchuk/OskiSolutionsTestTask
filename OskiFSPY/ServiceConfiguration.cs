@@ -1,5 +1,4 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using OskiFSPY.Core.Context;
@@ -37,16 +36,6 @@ public static class ServiceConfiguration
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(configuration.GetValue<string>("JWTSettings:ApiKey"))),
                     };
                 });
-
-        services.AddCors(options =>
-        {
-            options.AddPolicy("AllowFrontend", builder =>
-            {
-                builder.AllowAnyOrigin()
-                       .AllowAnyHeader()
-                       .AllowAnyMethod();
-            });
-        });
 
         services.AddControllers();
         services.AddEndpointsApiExplorer();
