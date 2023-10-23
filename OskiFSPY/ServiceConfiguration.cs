@@ -1,7 +1,9 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using OskiFSPY.Core.Context;
-using System.Reflection;
+using System.Text;
 
 namespace OskiFSPY.WebAPI;
 
@@ -22,6 +24,28 @@ public static class ServiceConfiguration
                 {
                     sqlOptions.MigrationsAssembly("OskiFSPY.WebAPI");
                 });
+        });
+
+        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = false,
+                        ValidateAudience = false,
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(configuration.GetValue<string>("JWTSettings:ApiKey"))),
+                    };
+                });
+
+        services.AddCors(options =>
+        {
+            options.AddPolicy("AllowFrontend", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyHeader()
+                       .AllowAnyMethod();
+            });
         });
 
         services.AddControllers();
