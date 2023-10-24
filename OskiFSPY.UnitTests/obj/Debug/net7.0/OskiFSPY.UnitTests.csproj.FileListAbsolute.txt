@@ -172,3 +172,5 @@ D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY.UnitTests\bin\Debug\net7.0\OskiFSPY
 D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY.UnitTests\bin\Debug\net7.0\OskiFSPY.WebAPI.dll
 D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY.UnitTests\bin\Debug\net7.0\OskiFSPY.Core.pdb
 D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY.UnitTests\bin\Debug\net7.0\OskiFSPY.WebAPI.pdb
+D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY.UnitTests\bin\Debug\net7.0\System.Web.Cors.dll
+D:\GitHubRepo\OskiSolutionsTestTask\OskiFSPY.UnitTests\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
